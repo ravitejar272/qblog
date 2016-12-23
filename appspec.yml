@@ -1,0 +1,10 @@
+version: 0.1
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/qblog
+hooks:
+  BeforeInstall:
+    - location: scripts/install.sh
+  ApplicationStart:
+    - location: scripts/run.sh
