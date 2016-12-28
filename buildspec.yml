@@ -11,6 +11,7 @@ phases:
     commands:
       - echo Build started on `date`
       - pip install django-markdown
+      - pip install requests
       - python manage.py migrate
   post_build:
     commands:
