@@ -32,11 +32,11 @@ ALLOWED_HOSTS = [
 ]
 
 import requests
-EC2_PRIVATE_IP  =   None
+EC2_PRIVATE_IP = None
 try:
-    EC2_PRIVATE_IP  =   requests.get('http://169.254.169.254/latest/meta-data/local-ipv4', timeout = 0.01).text
+	EC2_PRIVATE_IP = requests.get('http://169.254.169.254/latest/meta-data/local-ipv4', timeout = 0.01).text
 except requests.exceptions.RequestException:
-    pass
+	pass
 if EC2_PRIVATE_IP:
     ALLOWED_HOSTS.append(EC2_PRIVATE_IP)
 
@@ -51,7 +51,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'blog',
     'django_markdown',
 )
@@ -98,6 +97,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
+
+SETTINGS_PATH = os.path.dirname(__file__)
+PROJECT PATH = os.path.join(SETTINGS_PATH, os.pardir)
+PROJECT_PATH = os.path.abspath(PROJECT_PATH)
+TEMPLATES_PATH = os.path.join(PROJECT_PATH, "templates")
+
+TEMPLATE_DIRS = (
+    TEMPLATES_PATH,
+)
+
+
 STATIC_URL = '/static/'
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
+#TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
+
