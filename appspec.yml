@@ -5,13 +5,12 @@ files:
     destination: /home/ubuntu/qblog
 permissions:
   - object: /home/ubuntu/qblog/scripts/run.sh
-    pattern: "**"
     owner: root
     group: root
     mode: 777
     acls: 
-      - u:root:rw
-      - m::rw
+      - u:root:rwx
+      - m::rwx
     type:
       - file
 hooks:
