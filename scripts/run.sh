@@ -1,3 +1,3 @@
 pip install django-markdown
 python manage.py migrate
-python manage.py runserver &
+nohup python manage.py runserver &

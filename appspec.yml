@@ -3,6 +3,17 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/qblog
+permissions:
+  - object: /home/ubuntu/qblog/scripts/run.sh
+    pattern: "*.sh"
+    owner: root
+    group: root
+    mode: 777
+    acls: 
+      - u:root:rw
+      - m::rw
+    type:
+      - file
 hooks:
   BeforeInstall:
     - location: scripts/install.sh
